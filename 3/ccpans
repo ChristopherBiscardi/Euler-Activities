@@ -1,0 +1,16 @@
+main = print a
+  where
+      a = supaPrime ([2..60085],2)
+
+prime :: Integral a => [a] -> ([a],a)
+prime x = supaPrime ((rest x),(head x))
+
+rest :: Integral a => [a] -> [a]
+rest (d:xs) = [b | b<-xs, rem b d /= 0]
+
+supaPrime :: Integral a => ([a],a) -> ([a],a)
+supaPrime ([],n) = ([],n)
+supaPrime ((c:x),n) = supaPrime ([b|b<-x, rem b c /= 0],c)
+
+factors :: a -> [a]
+factors x = [b | b<- [1..x], rem b x = 0]
