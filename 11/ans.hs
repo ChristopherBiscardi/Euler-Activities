@@ -59,15 +59,9 @@ testx x = fromIntegral $ length $ head x
 
 advPassNextDiag n nn x nnn = advMakeDiag ((mf n x) ++ (map (tail . last) (reverse (apxs nn x)))) nnn
 
--- Flesh out multi-function 
-
-
 mapfx n = map mf [0..n]
 
 mf x = foldr (.) id (replicate x init)
-
---seek to replace [x] ++ [init x] ... with list comphrehension
---Then associate number of list items with length of last list.. or something
 
 apx n x = [b m| b<-n,m<-[x]]
 
